@@ -9,15 +9,27 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SugestoesRouteImport } from './routes/sugestoes'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EncontrosRouteImport } from './routes/encontros'
 import { Route as ComoFuncionaRouteImport } from './routes/como-funciona'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SugestoesRoute = SugestoesRouteImport.update({
+  id: '/sugestoes',
+  path: '/sugestoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeedbackRoute = FeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -46,14 +58,18 @@ export interface FileRoutesByFullPath {
   '/como-funciona': typeof ComoFuncionaRoute
   '/encontros': typeof EncontrosRoute
   '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRoute
   '/sobre': typeof SobreRoute
+  '/sugestoes': typeof SugestoesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/como-funciona': typeof ComoFuncionaRoute
   '/encontros': typeof EncontrosRoute
   '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRoute
   '/sobre': typeof SobreRoute
+  '/sugestoes': typeof SugestoesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -61,14 +77,38 @@ export interface FileRoutesById {
   '/como-funciona': typeof ComoFuncionaRoute
   '/encontros': typeof EncontrosRoute
   '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRoute
   '/sobre': typeof SobreRoute
+  '/sugestoes': typeof SugestoesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/como-funciona' | '/encontros' | '/faq' | '/sobre'
+  fullPaths:
+    | '/'
+    | '/como-funciona'
+    | '/encontros'
+    | '/faq'
+    | '/feedback'
+    | '/sobre'
+    | '/sugestoes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/como-funciona' | '/encontros' | '/faq' | '/sobre'
-  id: '__root__' | '/' | '/como-funciona' | '/encontros' | '/faq' | '/sobre'
+  to:
+    | '/'
+    | '/como-funciona'
+    | '/encontros'
+    | '/faq'
+    | '/feedback'
+    | '/sobre'
+    | '/sugestoes'
+  id:
+    | '__root__'
+    | '/'
+    | '/como-funciona'
+    | '/encontros'
+    | '/faq'
+    | '/feedback'
+    | '/sobre'
+    | '/sugestoes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,16 +116,32 @@ export interface RootRouteChildren {
   ComoFuncionaRoute: typeof ComoFuncionaRoute
   EncontrosRoute: typeof EncontrosRoute
   FaqRoute: typeof FaqRoute
+  FeedbackRoute: typeof FeedbackRoute
   SobreRoute: typeof SobreRoute
+  SugestoesRoute: typeof SugestoesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sugestoes': {
+      id: '/sugestoes'
+      path: '/sugestoes'
+      fullPath: '/sugestoes'
+      preLoaderRoute: typeof SugestoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sobre': {
       id: '/sobre'
       path: '/sobre'
       fullPath: '/sobre'
       preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -124,18 +180,10 @@ const rootRouteChildren: RootRouteChildren = {
   ComoFuncionaRoute: ComoFuncionaRoute,
   EncontrosRoute: EncontrosRoute,
   FaqRoute: FaqRoute,
+  FeedbackRoute: FeedbackRoute,
   SobreRoute: SobreRoute,
+  SugestoesRoute: SugestoesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

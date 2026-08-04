@@ -4,6 +4,24 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Silent Book Club Salvador — Leia em boa companhia" },
+      {
+        name: "description",
+        content:
+          "Encontros mensais em Salvador para ler o seu próprio livro em silêncio, junto de outras pessoas. Cafés, parques, mirantes e espaços culturais.",
+      },
+      { property: "og:title", content: "Silent Book Club Salvador" },
+      {
+        property: "og:description",
+        content:
+          "Traga seu livro, leia em silêncio por uma hora e converse depois se quiser. Gratuito, mensal, em Salvador.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
@@ -106,10 +124,16 @@ function Index() {
             copy="Cafés, parques, mirantes e espaços culturais espalhados pela cidade."
           />
           <TeaserCard
-            to="/sobre"
-            eyebrow="Sobre"
-            title="De onde a gente veio"
-            copy="O movimento global e o capítulo baiano que começou em 2025."
+            to="/sugestoes"
+            eyebrow="Participe"
+            title="Sugira o próximo local"
+            copy="Conhece um lugar silencioso na cidade? Manda a dica pra gente."
+          />
+          <TeaserCard
+            to="/feedback"
+            eyebrow="Feedback"
+            title="Conte como foi"
+            copy="Sua opinião define o ritmo, o horário e o lugar dos próximos encontros."
           />
         </div>
       </section>
