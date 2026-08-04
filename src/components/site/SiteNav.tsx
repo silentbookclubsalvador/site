@@ -4,20 +4,22 @@ import { Mark } from "./Mark";
 const links = [
   { to: "/como-funciona", label: "Como funciona" },
   { to: "/encontros", label: "Encontros" },
+  { to: "/sugestoes", label: "Sugerir local" },
+  { to: "/feedback", label: "Feedback" },
   { to: "/sobre", label: "Sobre" },
   { to: "/faq", label: "Dúvidas" },
 ] as const;
 
 export function SiteNav() {
   return (
-    <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-      <Link to="/" className="flex items-center gap-2 text-accent">
+    <header className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6">
+      <Link to="/" className="flex items-center gap-2">
         <Mark />
         <span className="font-display text-lg tracking-tight text-foreground">
           Silent Book Club <span className="text-accent">·</span> Salvador
         </span>
       </Link>
-      <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
+      <nav className="hidden items-center gap-6 text-sm text-muted-foreground lg:flex">
         {links.map((l) => (
           <Link
             key={l.to}
