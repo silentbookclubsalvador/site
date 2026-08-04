@@ -110,7 +110,7 @@ function Index() {
 
       {/* Teaser cards to sub-pages */}
       <section className="mx-auto max-w-6xl px-6 py-28">
-        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-sm bg-border md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-sm bg-border md:grid-cols-2 lg:grid-cols-4">
           <TeaserCard
             to="/como-funciona"
             eyebrow="O ritual"
