@@ -192,7 +192,7 @@ function TeaserCard({
   title,
   copy,
 }: {
-  to: "/como-funciona" | "/encontros" | "/sobre";
+  to: "/como-funciona" | "/encontros" | "/sobre" | "/sugestoes" | "/feedback";
   eyebrow: string;
   title: string;
   copy: string;
