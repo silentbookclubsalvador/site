@@ -6,17 +6,17 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Silent Book Club Salvador — Leia em boa companhia" },
+      { title: "Silent Book Club Salvador — A hora feliz dos introvertidos" },
       {
         name: "description",
         content:
-          "Encontros mensais em Salvador para ler o seu próprio livro em silêncio, junto de outras pessoas. Cafés, parques, mirantes e espaços culturais.",
+          "Capítulo baiano do Silent Book Club: um movimento literário global de leitura silenciosa compartilhada. Cada um lê o próprio livro, junto dos outros.",
       },
       { property: "og:title", content: "Silent Book Club Salvador" },
       {
         property: "og:description",
         content:
-          "Traga seu livro, leia em silêncio por uma hora e converse depois se quiser. Gratuito, mensal, em Salvador.",
+          "Traga seu livro, leia em silêncio por uma hora e converse depois — se quiser. Gratuito e aberto a todo tipo de leitura.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -26,8 +26,25 @@ export const Route = createFileRoute("/")({
 });
 
 const marqueeLine =
-  "Leitura em silêncio • Salvador • Rio Vermelho • Pelourinho • Parque da Cidade • Traga seu livro • ";
+  "Leitura silenciosa compartilhada • Traga o seu livro • Introvert Happy Hour • Salvador, Bahia • ";
 
+const pillars = [
+  {
+    n: "I",
+    t: "Autonomia literária total",
+    d: "Cada pessoa lê o que quiser: ficção, poesia, quadrinhos, e-book, audiolivro com fones. Não existe obra obrigatória nem prazo de leitura.",
+  },
+  {
+    n: "II",
+    t: "Inclusão sem pressão",
+    d: "Sem debate estruturado, sem mediação acadêmica, sem prova de leitura. Um espaço seguro pra quem lê muito e pra quem está retomando o hábito.",
+  },
+  {
+    n: "III",
+    t: "Contra o isolamento",
+    d: "Uma atividade solitária feita em conjunto: dividir o mesmo espaço, em silêncio, é a nossa forma de fazer companhia.",
+  },
+];
 
 function Index() {
   return (
@@ -37,7 +54,7 @@ function Index() {
       {/* Hero editorial */}
       <section className="mx-auto max-w-6xl px-6 pt-6 pb-16 md:pt-12 md:pb-24">
         <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-muted-foreground">
-          Salvador · Bahia · desde 2025
+          Capítulo Salvador · Silent Book Club · desde 2025
         </p>
 
         <div className="mt-8 grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
@@ -52,28 +69,28 @@ function Index() {
 
             <div className="mt-10 flex justify-end md:mt-14">
               <p className="max-w-xs text-right text-sm leading-relaxed text-muted-foreground">
-                Um encontro mensal em cafeterias, parques, mirantes, livrarias e
-                espaços culturais de{" "}
+                Um movimento literário global de leitura silenciosa
+                compartilhada. Ou, como diz o lema oficial:{" "}
                 <span className="font-display italic text-foreground">
-                  Salvador
+                  a hora feliz dos introvertidos
                 </span>
-                . Você traz a leitura, a gente traz o silêncio confortável.
+                .
               </p>
             </div>
 
             <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link
-                to="/encontros"
+                to="/sobre"
                 className="group inline-flex items-center gap-3 rounded-none bg-foreground px-7 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-background transition hover:opacity-90"
               >
-                Ver próximos encontros
+                O que é o clube
                 <span className="transition group-hover:translate-x-1">→</span>
               </Link>
               <Link
-                to="/como-funciona"
+                to="/encontros"
                 className="border-b border-foreground pb-1 text-[11px] font-semibold uppercase tracking-[0.2em]"
               >
-                Como funciona
+                Próximos encontros
               </Link>
             </div>
           </div>
@@ -82,14 +99,14 @@ function Index() {
             <div className="rule-hairline overflow-hidden p-2">
               <img
                 src={heroImg}
-                alt="Duas pessoas lendo em silêncio em um encontro do clube em Salvador"
+                alt="Pessoas lendo cada uma o seu livro, em silêncio, no mesmo espaço"
                 width={1600}
                 height={1200}
                 className="h-[420px] w-full object-cover grayscale-[15%] md:h-[560px]"
               />
             </div>
             <div className="mt-3 flex items-baseline justify-between text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-              <span>Encontro nº 07 · Rio Vermelho</span>
+              <span>Cada um no seu livro, todos juntos</span>
               <span>Fig. 01</span>
             </div>
 
@@ -116,8 +133,41 @@ function Index() {
         </div>
       </div>
 
-      {/* Teaser cards */}
+      {/* Pilares */}
       <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+        <div className="flex items-baseline justify-between border-b border-border pb-4">
+          <h2 className="font-display text-2xl">O que a gente é</h2>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+            Três pilares
+          </span>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+          {pillars.map((p) => (
+            <div key={p.n} className="rule-hairline flex min-h-[240px] flex-col justify-between p-6">
+              <span className="font-display text-3xl text-accent">{p.n}</span>
+              <div>
+                <h3 className="font-display text-2xl leading-tight">{p.t}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {p.d}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-10 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          O Silent Book Club nasceu em 2012, na Califórnia, como alternativa
+          aos clubes de leitura tradicionais. O capítulo de Salvador existe
+          desde 2025 para trazer esse formato pra capital baiana.{" "}
+          <Link to="/sobre" className="text-foreground underline underline-offset-4 decoration-accent/50 hover:decoration-accent">
+            Conheça a história completa →
+          </Link>
+        </p>
+      </section>
+
+      {/* Teaser cards */}
+      <section className="mx-auto max-w-6xl px-6 pb-20 md:pb-28">
         <div className="flex items-baseline justify-between border-b border-border pb-4">
           <h2 className="font-display text-2xl">Índice</h2>
           <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
@@ -130,26 +180,26 @@ function Index() {
             n="01"
             to="/como-funciona"
             title={<>Como<br />funciona</>}
-            copy="Chega, lê em silêncio por uma hora, conversa depois se quiser."
+            copy="Chega, lê em silêncio por uma hora, conversa depois — se quiser."
           />
           <TeaserCard
             n="02"
             to="/encontros"
             title={<>Próximos<br />encontros</>}
-            copy="Cafés, parques, mirantes e espaços culturais pela cidade."
+            copy="Datas e locais de cada edição, sempre anunciados com antecedência."
           />
           <TeaserCard
             n="03"
             to="/sugestoes"
             title={<>Sugira um<br />local</>}
-            copy="Conhece um lugar silencioso? Manda a dica pra gente."
+            copy="Conhece um lugar tranquilo e acolhedor? Manda a dica pra gente."
           />
           <TeaserCard
             n="04"
             to="/feedback"
             filled
             title={<>Conte<br />como foi</>}
-            copy="Sua opinião define ritmo, horário e lugar dos próximos encontros."
+            copy="Sua opinião ajuda a organização a melhorar os próximos encontros."
           />
         </div>
       </section>
@@ -176,7 +226,7 @@ function Index() {
               to="/encontros"
               className="rule-hairline py-5 text-[11px] font-semibold uppercase tracking-[0.25em] transition hover:bg-foreground hover:text-background"
             >
-              Ver agenda completa
+              Ver agenda
             </Link>
           </div>
           <p className="mt-8 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
