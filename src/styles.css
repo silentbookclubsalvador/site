@@ -97,3 +97,23 @@
   text-wrap: balance;
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@utility marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+@utility rule-hairline {
+  border: 1px solid color-mix(in oklab, var(--ink) 22%, transparent);
+}
+
+
