@@ -28,7 +28,6 @@ export const Route = createFileRoute("/")({
 const marqueeLine =
   "Leitura em silêncio • Salvador • Rio Vermelho • Pelourinho • Parque da Cidade • Traga seu livro • ";
 
-export default function noop() {}
 
 function Index() {
   return (
