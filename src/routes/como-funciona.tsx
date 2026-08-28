@@ -26,7 +26,7 @@ const steps = [
   {
     n: "01",
     t: "Chega e cumprimenta",
-    d: "Os primeiros 20 minutos são para se apresentar, mostrar o livro que trouxe e se acomodar no espaço.",
+    d: "Os primeiros 20 a 30 minutos são para se apresentar, mostrar o livro que trouxe, trocar recomendações rápidas e se acomodar.",
   },
   {
     n: "02",
