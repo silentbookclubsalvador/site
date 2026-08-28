@@ -1,9 +1,9 @@
-import logo from "@/assets/sbc-logo.jpg.asset.json";
+import logo from "@/assets/sbc-logo.jpg";
 
 export function Mark({ className }: { className?: string }) {
   return (
     <img
-      src={logo.url}
+      src={logo}
       alt="Silent Book Club Salvador"
       width={40}
       height={40}
