@@ -36,7 +36,7 @@ const steps = [
   {
     n: "03",
     t: "Conversa livre",
-    d: "No fim, quem quiser fica pra bater papo sobre a leitura. Sem obrigação, sem prova, sem resenha.",
+    d: "Nos últimos 15 a 30 minutos, quem quiser fica pra bater papo sobre a leitura. Sem obrigação, sem prova, sem resenha.",
   },
 ];
 
