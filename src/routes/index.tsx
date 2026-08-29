@@ -99,7 +99,7 @@ function Index() {
             <div className="rule-hairline overflow-hidden p-2">
               <img
                 src={heroImg}
-                alt="Pessoas lendo cada uma o seu livro, em silêncio, no mesmo espaço"
+                alt="Leitora segurando um livro em frente ao rosto, em silêncio"
                 width={1600}
                 height={1200}
                 className="h-[420px] w-full object-cover grayscale-[15%] md:h-[560px]"
