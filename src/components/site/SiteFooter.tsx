@@ -35,14 +35,13 @@ export function SiteFooter() {
             </li>
             <li>
               <a
-                href="https://ig.me/m/sbc.salvador"
-                target="_blank"
-                rel="noreferrer"
+                href={`mailto:${CONTACT_EMAIL}`}
                 className="text-muted-foreground hover:text-foreground"
               >
-                Direct: falar com a organização
+                {CONTACT_EMAIL}
               </a>
             </li>
+
           </ul>
         </div>
 
