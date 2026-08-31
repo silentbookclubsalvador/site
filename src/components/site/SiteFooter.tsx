@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mark } from "./Mark";
+import { CONTACT_EMAIL } from "@/lib/contact";
+
 
 export function SiteFooter() {
   return (
