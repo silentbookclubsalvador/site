@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mark } from "./Mark";
+import { CONTACT_EMAIL } from "@/lib/contact";
+
 
 export function SiteFooter() {
   return (
@@ -35,14 +37,13 @@ export function SiteFooter() {
             </li>
             <li>
               <a
-                href="https://ig.me/m/sbc.salvador"
-                target="_blank"
-                rel="noreferrer"
+                href={`mailto:${CONTACT_EMAIL}`}
                 className="text-muted-foreground hover:text-foreground"
               >
-                Direct: falar com a organização
+                {CONTACT_EMAIL}
               </a>
             </li>
+
           </ul>
         </div>
 
