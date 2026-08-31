@@ -44,8 +44,8 @@ const faq: Item[] = [
   },
   {
     q: "Tem idade mínima?",
-    short: "A partir de 16 anos.",
-    long: "Recomendamos a partir de 16 anos. Menores acompanhados dos pais ou responsáveis são bem-vindos. Não há idade máxima — já tivemos participantes dos 16 aos 70+.",
+    short: "Não, mas menores devem vir acompanhados.",
+    long: "Não há idade mínima para participar: crianças e adolescentes são bem-vindos. No entanto, se você tem menos de 16 anos, pedimos que venha acompanhado de um responsável. O Silent Book Club Salvador não se responsabiliza por menores de idade durante os encontros.",
   },
   {
     q: "Como confirmo presença?",

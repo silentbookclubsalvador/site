@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CONTACT_EMAIL } from "@/lib/contact";
 
 type Field = {
   name: string;
@@ -20,21 +21,20 @@ export function MessageForm({
   const [values, setValues] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
 
-  const message =
-    `[${subject}]\n\n` +
+  const body =
     fields
       .map((f) => `${f.label}: ${values[f.name]?.trim() || "—"}`)
-      .join("\n");
+      .join("\n") + `\n\n— Enviado pelo site do Silent Book Club Salvador`;
 
-  async function handleSubmit(e: React.FormEvent) {
+  const mailtoHref =
+    `mailto:${CONTACT_EMAIL}` +
+    `?subject=${encodeURIComponent(`[${subject}] ${values["nome"]?.trim() || "Site SBC Salvador"}`)}` +
+    `&body=${encodeURIComponent(body)}`;
+
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    try {
-      await navigator.clipboard.writeText(message);
-    } catch {
-      /* clipboard indisponível — seguimos mesmo assim */
-    }
     setSent(true);
-    window.open("https://ig.me/m/sbc.salvador", "_blank", "noreferrer");
+    window.location.href = mailtoHref;
   }
 
   return (
@@ -83,13 +83,11 @@ export function MessageForm({
 
       {sent && (
         <p className="rounded-sm border border-accent/30 bg-accent/5 p-4 text-sm text-muted-foreground">
-          Copiamos sua mensagem e abrimos o direct do{" "}
-          <span className="text-foreground">@sbc.salvador</span> — é só colar e
-          enviar. Se a aba não abriu,{" "}
+          Abrimos seu aplicativo de e-mail com a mensagem pronta para{" "}
+          <span className="text-foreground">{CONTACT_EMAIL}</span> — é só
+          enviar. Se nada abriu,{" "}
           <a
-            href="https://ig.me/m/sbc.salvador"
-            target="_blank"
-            rel="noreferrer"
+            href={mailtoHref}
             className="underline underline-offset-4"
           >
             clique aqui
